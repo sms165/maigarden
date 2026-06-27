@@ -1,0 +1,25 @@
+# Ignore sensitive configuration files
+wp-config.php
+
+# Ignore standard WordPress core files (optional, but keeps repo clean)
+# wp-admin/
+# wp-includes/
+# *.php
+
+# Ignore your media uploads, backups, and cache
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-*
+wp-content/cache/
+wp-content/advanced-cache.php
+
+# Ignore server configuration files
+.htaccess
+sftp.json
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+docker-compose.yml

@@ -1,0 +1,97 @@
+<section class="reservation-section" id="reservation">
+    
+   <div class="reservation-hero-banner">
+    <div class="banner-overlay"></div>
+    
+    <video 
+        autoplay 
+        muted 
+        loop 
+        playsinline 
+        webkit-playsinline
+        preload="auto"
+        class="banner-bg-video">
+        <source src="http://localhost:8080/wp-content/uploads/2026/06/end.mp4" type="video/mp4">
+        
+    </video>
+    
+    <div class="banner-content-box">
+        <span class="menu-subtitle-white">Reservierung & Kontakt</span>
+        <div class="gold-accent-divider">
+            <span class="divider-line"></span>
+            <svg class="divider-diamond" viewBox="0 0 10 10" xmlns="http://www.w3.org/2000/svg">
+                <polygon points="5,0 10,5 5,10 0,5" fill="#C9A55A"/>
+            </svg>
+            <span class="divider-line"></span>
+        </div>
+        <h2 class="menu-main-title">Wir freuen uns auf Sie</h2>
+    </div>
+</div>
+
+    <div class="reservation-interactive-container">
+        <div class="reservation-split-grid">
+            
+          <div class="drink-showcase-banner video-banner-variant">
+            <div class="card-corner top-left"></div>
+            <div class="card-corner top-right"></div>
+            <div class="card-corner bottom-left"></div>
+            <div class="card-corner bottom-right"></div>
+            
+            <div class="banner-video-container">
+                <video autoplay muted loop playsinline  class="showcase-inline-video">
+                    <source src="http://localhost:8080/wp-content/uploads/2026/06/reservation.mp4" type="video/mp4">
+                    Ihr Browser unterstützt dieses Videoformat nicht.
+                </video>
+            </div>
+        </div>
+
+        <div class="mock-resmio-widget">
+    <div class="resmio-mock-steps">
+        <span class="step active">1. Details</span>
+        <span class="step-line"></span>
+        <span class="step">2. Zeit</span>
+        <span class="step-line"></span>
+        <span class="step">3. Kontakt</span>
+    </div>
+
+    <form class="resmio-mock-form" onsubmit="event.preventDefault();">
+        <div class="resmio-input-row">
+            <div class="resmio-input-group">
+                <label>Personen</label>
+                <select>
+                    <option>2 Personen</option>
+                    <option>3 Personen</option>
+                    <option>4 Personen</option>
+                    <option selected>5 Personen</option>
+                    <option>6+ (Gruppe)</option>
+                </select>
+            </div>
+            <div class="resmio-input-group">
+                <label>Datum</label>
+                <input type="date" value="2026-06-26">
+            </div>
+        </div>
+
+        <div class="resmio-time-slots-container">
+            <label class="slots-label">Verfügbare Uhrzeiten</label>
+            <div class="resmio-slots-grid">
+                <button type="button" class="slot-btn">17:30</button>
+                <button type="button" class="slot-btn">18:00</button>
+                <button type="button" class="slot-btn active">18:30</button>
+                <button type="button" class="slot-btn">19:00</button>
+                <button type="button" class="slot-btn">20:00</button>
+                <button type="button" class="slot-btn">20:30</button>
+            </div>
+        </div>
+
+        <div class="resmio-action-area">
+            <p class="resmio-notice">&bull; Kostenlose Reservierung mit Sofortbestätigung</p>
+            <button type="submit" class="resmio-submit-btn">Weiter zur Dateneingabe</button>
+        </div>
+    </form>
+</div>
+
+        </div>
+    </div>
+
+</section>

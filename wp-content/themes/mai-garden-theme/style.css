@@ -1,0 +1,2372 @@
+/*
+Theme Name: MaiGarden Theme
+Author: YBlackbox
+Description: Custom minimalist block theme for a luxury Vietnamese restaurant.
+Version: 1.0.0
+Requires at least: 6.5
+*/
+
+/* ==========================================================================
+   REGISTER THE JOST FONT FAMILY (TTF VERSION)
+   ========================================================================== */
+
+/* --- JOST VARIABLE FONTS --- */
+
+/* Jost Regular & Bold Range (Normal Style) */
+@font-face {
+    font-family: 'Jost';
+    src: url('./assets/fonts/Jost-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900; /* Handles 400, 600, 700, etc. dynamically */
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Jost Italic Range */
+@font-face {
+    font-family: 'Jost';
+    src: url('./assets/fonts/Jost-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Playfair Display - Roman/Normal */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('./assets/fonts/PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+    font-weight: 400 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Playfair Display - Italic */
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('./assets/fonts/PlayfairDisplay-ItalicVariableFont_wght.ttf') format('truetype');
+    font-weight: 400 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Global Font Assignment */
+body, p, span, button, a {
+    font-family: 'Jost', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Jost', sans-serif;
+}
+html {
+    scroll-behavior: smooth;
+}
+
+/* ==========================================================================
+   HERO COVER / VIDEO BANNER SECTION
+   ========================================================================== */
+
+.wp-block-cover.alignfull {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.wp-block-cover__video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.hero-content-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 30px !important;
+    width: 100%;
+    max-width: 80vw;
+    text-align: center;
+}
+
+.custom-brand-heading {
+    color: #4DF843 !important;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: #225227;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 64px !important; 
+    font-weight: 700 !important;
+    letter-spacing: 4px !important;
+    text-shadow: 0 0 20px rgba(77, 248, 67, 0.5) !important;
+    margin: 0 0 10px 0 !important;
+    text-transform: uppercase !important;
+    line-height: 1.2 !important;
+}
+
+.hero-button-wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 20px !important;
+    width: 100% !important;
+}
+
+.wp-block-button.btn-style-transparent .wp-block-button__link {
+    display: inline-block !important;
+    padding: 16px 32px !important;
+    border-radius: 4px !important;
+    border: 1px solid #7FA469 !important;
+    background: rgba(0, 0, 0, 0.5) !important;
+    color: #4DF843 !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    text-decoration: none !important;
+    box-shadow: 0 0 15px rgba(77, 248, 67, 0.15) !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+.wp-block-button.btn-style-dark .wp-block-button__link {
+    display: inline-block !important;
+    padding: 16px 32px !important;
+    border-radius: 4px !important;
+    border: 1px solid #9A7E4A !important;
+    background: rgba(43, 31, 15, 0.6) !important;
+    color: #C9A55A !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    text-decoration: none !important;
+    box-shadow: 0 0 15px rgba(201, 165, 90, 0.15) !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* ==========================================================================
+   AUDIO / PILL CONTROLS
+   ========================================================================== */
+
+.audio-toggle-wrapper {
+    position: absolute !important;
+    bottom: 40px !important;
+    right: 40px !important;
+    z-index: 999999 !important;
+    pointer-events: auto !important;
+}
+
+.audio-pill-btn {
+    position: relative !important;
+    width: 64px !important;
+    height: 32px !important;
+    padding: 0 !important;
+    border-radius: 30px !important;
+    border: 1px solid #C9A55A !important;
+    background: rgba(0, 0, 0, 0.00) !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    pointer-events: auto !important;
+    transition: background-color 0.25s ease, border-color 0.25s ease !important;
+}
+
+.audio-pill-btn.active-green {
+    background-color: #4DF843 !important;
+    border-color: #C9A55A !important;
+}
+
+.audio-slider-circle {
+    position: absolute !important;
+    top: 2px !important;
+    left: 34px !important;
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 50% !important;
+    background: radial-gradient(circle, #ffffff 0%, #e2e2e2 100%) !important;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: none !important;
+    transition: left 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.audio-pill-btn.is-muted .audio-slider-circle {
+    left: 2px !important;
+}
+
+.audio-icon {
+    color: #000000 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    pointer-events: none !important;
+}
+.audio-icon svg {
+    width: 13px !important;
+    height: 13px !important;
+}
+
+/* ==========================================================================
+   BRAND LOGO WRAPPERS & RESPONSIVE SCALING
+   ========================================================================== */
+
+.custom-brand-logo-wrapper {
+    width: 100%;
+    max-width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+.custom-brand-logo {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0px 4px 15px rgba(0, 0, 0, 0.5)); 
+}
+
+@media screen and (max-width: 768px) {
+    .custom-brand-logo-wrapper {
+        max-width: 100vw;
+        margin-bottom: 25px;
+    }
+}
+
+/* ==========================================================================
+   "ÜBER UNS" PARALLAX STICKY SHRINK SECTION
+   ========================================================================== */
+
+.about-us-section {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 0 !important;
+    margin: 0 !important;
+   
+}
+
+.about-parallax-scroll-container {
+    position: relative;
+    width: 100%;
+    background-color: #000000;
+    box-sizing: border-box;
+}
+
+.about-header-container {
+    text-align: center;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 20vh 20px 0px 20px;
+    box-sizing: border-box;
+}
+
+.about-subtitle {
+    display: block;
+    width: 100%;
+    max-width: 962px;
+    color: #FFFFFF !important;
+    text-align: center;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 36px !important;
+    font-weight: 400 !important;
+    line-height: 110px !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    margin: 20px auto !important;
+    
+}
+
+.about-main-title {
+    display: block;
+    width: 100%;
+    max-width: 1256px;
+    color: #C9A55A !important;
+    text-align: center;
+    font-family: "Playfair Display", serif !important;
+    font-size: 72px !important;
+    font-style: normal;
+    font-weight: 300 !important;
+    line-height: 110px !important;
+    margin: 0 auto !important;
+    letter-spacing: normal !important;
+}
+
+.gold-accent-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 250px;
+    margin: -10px auto 20px auto;
+}
+
+.divider-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #C9A55A;
+}
+
+.divider-diamond {
+    width: 18px;
+    height: 18px;
+}
+
+.about-sticky-plate-stage {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.about-plate-layer {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    will-change: transform, opacity;
+    z-index: 100 !important;
+    pointer-events: none;
+}
+
+.about-featured-img {
+    width: 90%;
+    max-width: 560px;
+    height: auto;
+    filter: drop-shadow(0 25px 45px rgba(0, 0, 0, 0.95));
+    transform-origin: center center;
+    will-change: transform;
+}
+
+.about-scroller-content-track {
+    width: 100%;
+    position: relative;
+    z-index: 5;
+}
+
+.about-parallax-scroll-container::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.about-text-panel-slide {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.about-parallax-scroll-container .about-text-panel-slide.layout-panel-right:first-of-type {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 38%;
+    height: 100vh;
+    z-index: 10; /* Places it over/beside the plate layer */
+}
+
+.about-text-panel-slide.screen-full-center {
+    justify-content: center;
+    align-items: center;
+    padding: 0 4%;
+    width: 100%;
+}
+
+.about-text-panel-slide.layout-panel-left {
+    justify-content: center;
+    width: 100%;
+    padding: 0 4% 0 0;
+}
+
+.about-text-panel-slide.layout-panel-left.slide-split-parallax .slide-content-layer {
+    padding-bottom: 30vh;           /* Adjust this value to move text up/down */
+    align-items: flex-start;     /* Ensures content starts higher */
+    justify-content: flex-start;
+}
+
+.about-text-panel-slide.layout-panel-right {
+    justify-content: center;
+    align-items: flex-end;
+    width: 38%;
+    margin-left: auto;
+    padding: 0 8% 0 4%;
+}
+
+.about-table-arrival-slide {
+    
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    
+}
+
+.about-table-img {
+    width: 100%;
+    max-width: 780px;
+    height: auto;
+    display: block;
+}
+
+.about-editorial-quote {
+    color: #C9A55A !important;
+    text-align: right !important;
+    font-family: "Playfair Display", serif !important;
+    font-size: 32px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+    letter-spacing: normal !important;
+}
+
+.about-body-text {
+    color: #C9A55A !important;
+    text-align: right !important;
+    font-family: "Playfair Display", serif !important;
+    font-size: 32px !important;
+    font-style: normal !important;
+    font-weight: 500 !important;
+    line-height: 1.4 !important;
+    letter-spacing: normal !important;
+    
+}
+
+
+
+/* ==========================================================================
+   DYNAMIC DECOUPLED PARALLAX BACKGROUND FOR SLIDE 3
+   ========================================================================== */
+
+.slide-split-parallax {
+    position: relative;
+    
+}
+
+.slide-bg-parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120vh; /* Extra vertical space allows smooth image travel bounds */
+    z-index: 1;
+    will-change: transform;
+}
+
+.table-parallax-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.slide-bg-parallax-layer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    z-index: 2;
+}
+
+.slide-content-layer {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 4% 0 8%;
+}
+
+
+
+.slide-content-layer .about-body-text {
+    width: 30%; 
+    text-align: left !important; /* Left alignment supports panel layout symmetry */
+}
+/* ==========================================================================
+   STANDALONE METRICS MARQUEE (FINAL CONFIGURATION WITH GAP CORRECTION)
+   ========================================================================== */
+
+@keyframes globalMarqueeLoop {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.metrics-marquee-container {
+    background-color: #000000;
+    border-top: 1px solid #111111;
+    border-bottom: 1px solid #111111;
+    padding: 60px 0;
+    width: 100%;
+    overflow: hidden; /* Clips elements sliding out of bounds */
+    position: relative;
+    display: block;
+}
+
+.metrics-marquee-container .marquee-track {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: max-content; /* Forces container to be as wide as content */
+    gap: 100px;         /* Uniform spacing around vertical lines */
+    animation: globalMarqueeLoop 30s linear infinite;
+}
+
+.metrics-marquee-container .metric-item {
+    position: relative; /* Context anchor for pseudo-element dividers */
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    
+    /* === GAP CONTROL === */
+    gap: 32px;          /* Increased space between the top number and bottom label */
+    
+    flex-shrink: 0;     /* Prevents layout squishing */
+}
+
+/* Luxury Gold Metrics Numbers */
+.metrics-marquee-container .metric-number {
+    color: #C9A55A;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;  /* 34.375% */
+    margin: 0;
+}
+
+/* Luxury White Subtitles Underneath Numbers */
+.metrics-marquee-container .metric-label {
+    color: #FFF;
+    text-align: center;
+    font-family: 'Jost', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;  /* 91.667% */
+    white-space: nowrap; 
+    text-transform: none; 
+    letter-spacing: normal;
+    margin: 0;
+}
+
+/* Dynamic Vertical Gold Dividers */
+.metrics-marquee-container .metric-item::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -50px;       /* Center point of the 100px gap */
+    transform: translateY(-50%);
+    
+    /* Divider line dimensions and theme color scaling */
+    width: 1px;
+    height: 100px;       /* Adjusted slightly higher to balance out the new text gap */
+    background-color: #C9A55A;
+    opacity: 0.4;       /* Subtle minimalist blend */
+}
+
+/* Pause animation on desktop hover states */
+.metrics-marquee-container:hover .marquee-track {
+    animation-play-state: paused;
+}
+
+/* Responsive Mobile Scaling Rules */
+@media screen and (max-width: 991px) {
+    .metrics-marquee-container {
+        padding: 40px 0;
+    }
+    .metrics-marquee-container .marquee-track {
+        gap: 60px;
+        animation-duration: 22s;
+    }
+    .metrics-marquee-container .metric-item {
+        gap: 20px;      /* Scales down the gap on mobile devices safely */
+    }
+    .metrics-marquee-container .metric-item::after {
+        right: -30px;
+        height: 50px;
+    }
+    .metrics-marquee-container .metric-number {
+        font-size: 44px; 
+        line-height: 18px;
+    }
+    .metrics-marquee-container .metric-label {
+        font-size: 16px;
+        line-height: 18px;
+    }
+}
+
+
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS
+   ========================================================================== */
+
+@media screen and (max-width: 991px) {
+    .about-main-title {
+        font-size: 48px !important;
+        line-height: 60px !important;
+    }
+    .about-subtitle {
+        font-size: 24px !important;
+        line-height: 40px !important;
+    }
+    .about-parallax-scroll-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .about-scroller-content-track, .about-sticky-plate-stage {
+        width: 100%;
+        float: none;
+    }
+    .about-sticky-plate-stage {
+        position: relative !important;
+        top: 0 !important;
+        height: auto !important;
+        z-index: 9;
+        margin-top: 0 !important;
+    }
+    .about-text-panel-slide, .about-table-arrival-slide {
+        height: auto;
+        padding: 60px 24px;
+        width: 100% !important;
+    }
+    .about-plate-layer {
+        position: relative !important;
+        transform: none !important;
+        opacity: 1 !important;
+        height: auto !important;
+    }
+    .about-featured-img {
+        width: 65%;
+    }
+    .slide-bg-parallax-layer {
+        height: 100%;
+    }
+    .slide-content-layer {
+        padding: 0;
+    }
+    .slide-content-layer .about-body-text {
+        width: 100%;
+        text-align: center !important;
+    }
+    
+}
+
+/* ==========================================================================
+   MENU SHOWCASE SECTION DESIGN ENGINE (ULTIMATE DESKTOP FIXED GRID)
+   ========================================================================== */
+
+.menu-showcase-section {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 100px 24px !important;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 100;
+}
+
+.menu-header-container {
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 80px auto;
+}
+
+.menu-subtitle {
+    display: block;
+    color: #C9A55A !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.menu-subtitle-white {
+    display: block;
+    color: #ffffff !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 24px;
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.menu-main-title {
+    color: #C9A55A !important;
+    font-family: "Playfair Display", serif !important;
+    font-size: 72px !important;
+    font-weight: 400 !important;
+    line-height: 1.15 !important;
+    margin: 25px 0 !important;
+}
+
+.menu-intro-text {
+    color: #C9A55A !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 300 !important;
+    line-height: 1.8 !important;
+    opacity: 0.85;
+    margin-top: 30px;
+}
+
+/* FIX: Changed from max-content to 1fr. 
+   This explicitly defines standard columns so grid-column 1/-1 works on large screens!
+*/
+.menu-grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(359px, 1fr));
+    justify-content: center;
+    gap: 30px;
+    width: 100%;
+    max-width: 1522px; /* Matches your exact mock dimension */
+    margin: 0 auto;
+}
+
+/* Individual Card Architecture Base Styles */
+.menu-card-item {
+    background-color: #111111;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    gap: 10px;               
+    flex-shrink: 0;          
+    text-decoration: none !important;
+    position: relative; 
+    box-sizing: border-box;
+    
+    /* === BASE CARDS RESPONSIVE BALANCING SYSTEM === */
+    width: 100%;
+    max-width: 359.306px;
+    height: 521px;
+    margin: 0 auto;
+    
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, max-width 0.4s ease, height 0.4s ease;
+}
+
+/* --- THE FOUR CORNER SOLID LINES SYSTEM --- */
+.menu-card-item .card-corner {
+    position: absolute;
+    width: 24px;   
+    height: 24px;  
+    z-index: 99;   
+    pointer-events: none;
+}
+
+.menu-card-item .card-corner.top-left { top: 0; left: 0; border-top: 0.528px solid #C9A55A; border-left: 0.528px solid #C9A55A; }
+.menu-card-item .card-corner.top-right { top: 0; right: 0; border-top: 0.528px solid #C9A55A; border-right: 0.528px solid #C9A55A; }
+.menu-card-item .card-corner.bottom-left { bottom: 0; left: 0; border-bottom: 0.528px solid #C9A55A; border-left: 0.528px solid #C9A55A; }
+.menu-card-item .card-corner.bottom-right { bottom: 0; right: 0; border-bottom: 0.528px solid #C9A55A; border-right: 0.528px solid #C9A55A; }
+
+.card-image-container {
+    width: 100%;
+    height: 420px; 
+    overflow: hidden;
+    padding: 0; 
+    box-sizing: border-box;
+}
+
+.card-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.menu-card-item:hover:not(.is-expanded) .card-image-container img {
+    transform: scale(1.03);
+}
+
+.card-meta-details {
+    padding: 15px 24px 24px 24px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 4px;
+    box-sizing: border-box;
+}
+
+.category-title {
+    color: #C9A55A !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    margin: 0 !important;
+}
+
+.category-subtitle {
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.menu-card-item:hover:not(.is-expanded) {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px 0 rgba(201, 165, 90, 0.12);
+}
+
+/* ==========================================================================
+   IN-PLACE CARD EXPANSION ENGINE (RELIABLE DESKTOP OVERRIDES)
+   ========================================================================== */
+
+/* --- THE SECRET SAUCE: Full Row Expansion State --- */
+.menu-card-item.is-expanded {
+    grid-column: 1 / -1 !important; /* Spans across all columns perfectly now */
+    max-width: 100% !important;     /* Overrides 359px restriction */
+    width: 100% !important;
+    height: auto !important;        /* Breaks out of fixed 521px box */
+    cursor: default;
+    background-color: #050505;
+    transform: none !important;
+    box-shadow: none;
+}
+
+/* Safely hide normal small card layout elements when open */
+.menu-card-item.is-expanded > .card-image-container,
+.menu-card-item.is-expanded > .card-meta-details {
+    display: none !important;
+}
+
+/* --- INNER EXPANDED CONTAINER --- */
+.menu-expanded-overlay {
+    display: none;                
+    opacity: 0;
+    padding: 60px 40px;
+    box-sizing: border-box;
+    width: 100%;
+    position: relative;
+    flex-direction: column;
+}
+
+/* Reveal inner menu framework */
+.menu-card-item.is-expanded .menu-expanded-overlay {
+    display: flex !important;
+    opacity: 1 !important;
+    animation: fadeInContent 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInContent {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Inline Header Layout */
+.overlay-header-inline {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #1a1a1a;
+    padding-bottom: 20px;
+    width: 100%;
+}
+
+.mini-overlay-thumb {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.overlay-title {
+    color: #C9A55A;
+    font-size: 24px;
+    margin: 0;
+}
+
+.overlay-subtitle {
+    color: rgba(255,255,255,0.4);
+    font-size: 13px;
+}
+/* Close Window Trigger Cross Button */
+.close-overlay-btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: transparent !important;
+    border: none !important;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 38px;
+    line-height: 1;
+    cursor: pointer;
+    /* Forces the element to receive click events, even if an overlay mask is acting up */
+    pointer-events: auto !important; 
+    /* Ensures it sits confidently above the scroll container */
+    z-index: 100000 !important; 
+    padding: 10px;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.close-overlay-btn:hover {
+    color: #C9A55A;
+    transform: scale(1.15);
+}
+
+/* Scrollable Menu Box Engine */
+.overlay-scroll-container {
+    width: 100%;
+    overflow-y: auto;
+    max-height: 75vh; /* Prevents infinite webpage vertical layout stretching */
+    padding-right: 20px;
+}
+
+/* Custom Scrollbar Polish */
+.overlay-scroll-container::-webkit-scrollbar { width: 5px; }
+.overlay-scroll-container::-webkit-scrollbar-track { background: #050505; }
+.overlay-scroll-container::-webkit-scrollbar-thumb { background: #C9A55A; border-radius: 10px; }
+
+/* Column Subgrids */
+.menu-columns-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    gap: 50px;
+    width: 100%;
+}
+
+.menu-columns-split.block-row-spacer {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid #111111;
+}
+
+.column-decor-subtitle {
+    display: block;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 11px;
+    letter-spacing: 1px;
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+
+.dish-type-heading {
+    color: #C9A55A;
+    font-size: 20px;
+    border-bottom: 1px dashed rgba(201,165,90,0.3);
+    padding-bottom: 8px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.dish-item {
+    margin-bottom: 25px;
+}
+
+.dish-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.dish-meta h6 {
+    color: #C9A55A;
+    font-size: 15px;
+    margin: 0;
+}
+
+.dish-price {
+    color: #fff;
+    font-weight: 500;
+}
+
+.dish-item p {
+    color: rgba(255,255,255,0.6);
+    font-size: 13px;
+    line-height: 1.6;
+    margin: 6px 0 0 0;
+}
+
+.inline-menu-img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+/* ==========================================================================
+   RESPONSIVE DESIGN BREAKPOINTS (GLOBAL MERGE UNIFICATION)
+   ========================================================================== */
+
+@media screen and (max-width: 1200px) {
+    .menu-main-title { font-size: 54px !important; }
+}
+
+@media screen and (max-width: 991px) {
+    .about-main-title { font-size: 48px !important; line-height: 60px !important; }
+    .about-subtitle { font-size: 24px !important; line-height: 40px !important; }
+    .about-parallax-scroll-container { display: flex; flex-direction: column; }
+    .about-scroller-content-track, .about-sticky-plate-stage { width: 100%; float: none; }
+    .about-sticky-plate-stage { position: relative !important; top: 0 !important; height: auto !important; z-index: 9; margin-top: 0 !important; }
+    .about-text-panel-slide, .about-table-arrival-slide { height: auto; padding: 60px 24px; width: 100% !important; }
+    .about-plate-layer { position: relative !important; transform: none !important; opacity: 1 !important; height: auto !important; }
+    .about-featured-img { width: 65%; }
+    .slide-bg-parallax-layer { height: 100%; }
+    .slide-content-layer { padding: 0; }
+    .slide-content-layer .about-body-text { width: 100%; text-align: center !important; }
+    
+    /* Menu Expanded Overrides on Medium/Small Layouts */
+    .menu-columns-split { grid-template-columns: 1fr; gap: 30px; }
+    .visual-showcase { display: none; }
+    .menu-expanded-overlay { padding: 40px 20px; }
+}
+
+.menu-dish-column.visual-showcase {
+    display: flex;
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+}
+
+.inline-menu-img {
+    max-width: 100%; /* Prevents image from being wider than its column */
+    height: auto; /* Maintains aspect ratio */
+    border-radius: 4px;
+    object-fit: contain; /* Ensures the entire image is visible within the column */
+}
+.drink-grid-wrapper {
+   display: flex;
+    flex-direction: row;
+    align-items: stretch; /* Forces both blocks to match equal height dynamically */
+    gap: 30px;            /* Keeps structural consistency with your menu grids */
+    width: 100%;
+    max-width: 1522px;
+    margin: 40px auto;
+    box-sizing: border-box;
+}
+
+@media screen and (max-width: 991px) {
+    .drink-grid-wrapper {
+        flex-direction: column; /* Stacks the cards vertically */
+        padding: 0 16px;        /* Adds safe breathing room on mobile screens */
+    }
+    .drink-grid-wrapper > div {
+        width: 100% !important;
+    }
+}
+
+/* 1. Base rule for ALL corners in the video block - forces dimensions and colors */
+.drink-showcase-banner.video-banner-variant .card-corner {
+    position: absolute !important;
+    width: 20px !important;    /* Size of the corner frame */
+    height: 20px !important;   /* Size of the corner frame */
+    z-index: 999 !important;   /* Force stay on top of the black background & video */
+    display: block !important;
+}
+
+/* 2. Create the distinct golden L-shape borders for each specific corner */
+.drink-showcase-banner.video-banner-variant .card-corner.top-left {
+    top: 0 !important;
+    left: 0 !important;
+    border-top: 2px solid #C9A55A !important;
+    border-left: 2px solid #C9A55A !important;
+}
+
+.drink-showcase-banner.video-banner-variant .card-corner.top-right {
+    top: 0 !important;
+    right: 0 !important;
+    border-top: 2px solid #C9A55A !important;
+    border-right: 2px solid #C9A55A !important;
+}
+
+.drink-showcase-banner.video-banner-variant .card-corner.bottom-left {
+    bottom: 0 !important;
+    left: 0 !important;
+    border-bottom: 2px solid #C9A55A !important;
+    border-left: 2px solid #C9A55A !important;
+}
+
+.drink-showcase-banner.video-banner-variant .card-corner.bottom-right {
+    bottom: 0 !important;
+    right: 0 !important;
+    border-bottom: 2px solid #C9A55A !important;
+    border-right: 2px solid #C9A55A !important;
+}
+
+/* 3. Outer Frame Configuration */
+.drink-showcase-banner.video-banner-variant {
+    display: block !important;
+    position: relative !important; 
+    width: 50% !important;
+    min-height: 0 !important;      /* Removes the desktop 460px restriction */
+        height: auto !important;          /* Allows fluid height tracking */
+        
+    background-color: #111111 !important; 
+    padding: 25px 35px !important; 
+    box-sizing: border-box !important;
+}
+
+/* 4. Inner Content Box rules */
+.banner-video-container {
+    width: 100%;
+    height: 100%;
+    position: relative !important;
+    overflow: hidden;
+}
+
+.showcase-inline-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+    display: block !important;
+}
+/* 1. The outer black frame box */
+.drink-showcase-banner.video-banner-variant {
+    display: block !important;
+    position: relative !important; /* Serves as the anchor for the absolute corners */
+    width: 100% !important;
+    height: auto;
+    
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    background-color: #111111; 
+    
+    /* Elegant inner frame space */
+    padding: 25px 35px !important; 
+    box-sizing: border-box !important;
+}
+
+/* 2. FORCE golden corners to snap perfectly back to the extreme outer edges */
+.drink-showcase-banner.video-banner-variant .card-corner {
+    position: absolute !important;
+    z-index: 99 !important; /* Forces them to stay safely on top of everything else */
+    width: 15px;  /* Match your layout's specific corner line dimensions */
+    height: 15px;
+}
+
+.drink-showcase-banner.video-banner-variant .card-corner.top-left {
+    top: 0 !important;
+    left: 0 !important;
+}
+
+.drink-showcase-banner.video-banner-variant .card-corner.top-right {
+    top: 0 !important;
+    right: 0 !important;
+}
+
+.drink-showcase-banner.video-banner-variant .card-corner.bottom-left {
+    bottom: 0 !important;
+    left: 0 !important;
+}
+
+.drink-showcase-banner.video-banner-variant .card-corner.bottom-right {
+    bottom: 0 !important;
+    right: 0 !important;
+}
+
+/* 3. The inner video container bounds */
+
+
+/* 4. The video file canvas */
+.showcase-inline-video {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important; 
+    display: block !important;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-grid-wrapper {
+        grid-template-columns: 1fr; 
+        gap: 24px;
+    }
+    .menu-card-item {
+        max-width: 100%;
+    }
+    .menu-main-title {
+        font-size: 40px !important;
+    }
+    .menu-showcase-section {
+        padding: 60px 16px !important;
+    }
+
+    .banner-video-container {
+   min-height: 0 !important;      /* Removes the desktop 400px restriction */
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+}
+
+}
+
+
+/* ==========================================================================
+   REVIEWS SHOWCASE ARCHITECTURE
+   ========================================================================== */
+
+/* Define dynamic metrics using CSS variables so the JS can calculate positioning seamlessly */
+:root {
+    --card-width: 360px;
+    --card-gap: 40px;
+}
+
+/* On mobile viewports, smoothly scale down sizing rules so side cards peek into the frame edges */
+@media screen and (max-width: 767px) {
+    :root {
+        --card-width: 290px;
+        --card-gap: 20px;
+    }
+}
+
+.reviews-showcase-section {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 80px 24px !important;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.reviews-header-container {
+    text-align: center;
+    width: 100%;
+    max-width: 1522px;
+    margin: 0 auto 40px auto;
+}
+
+/* --- MARQUEE ENGINE --- */
+.reviews-marquee-window {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 20px 0;
+    margin-top: 15px;
+}
+.marquee-title-track {
+    display: flex;
+    width: max-content;
+    white-space: nowrap;
+    animation: globalMarqueeLoop 25s linear infinite;
+}
+.reviews-marquee-title {
+    color: #C9A55A !important;
+    font-family: 'Jost', sans-serif !important;
+    font-size: 38px !important;
+    font-weight: 400 !important;
+    letter-spacing: 4px !important;
+    text-transform: uppercase;
+    margin: 0 !important;
+    display: inline-block;
+}
+.reviews-marquee-window .marquee-title-track .reviews-marquee-title .marquee-link {
+    color: #C9A55A !important;
+    text-decoration: none !important;
+    display: inline-block;
+    transition: color 0.15s ease;
+}
+.reviews-marquee-window .marquee-title-track .reviews-marquee-title .marquee-link:hover {
+    color: #4DF843 !important;
+}
+
+/* --- THE CAROUSEL MASK CONTAINER --- */
+.reviews-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1260px; /* Aligns 3 clean desktop cards flawlessly within layout boundaries */
+    margin: 0 auto;
+    overflow: hidden;
+    padding: 40px 0;
+}
+
+.reviews-grid-wrapper.carousel-track {
+    display: flex;
+    flex-direction: row; /* Strict horizontal lock on all viewports */
+    gap: var(--card-gap);
+    width: max-content;
+    padding: 20px 0;
+    cursor: grab;
+    user-select: none;
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: transform;
+}
+
+.reviews-grid-wrapper.carousel-track:active {
+    cursor: grabbing;
+}
+
+/* Base Card Styles */
+.review-card-item {
+    background-color: #050505;
+    border: 1px solid rgba(201, 165, 90, 0.15);
+    border-radius: 12px;
+    padding: 40px 30px;
+    width: var(--card-width); /* Responsive variable-driven base metrics */
+    min-height: 480px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    opacity: 0.35; /* Dims side cards to keep focus visual weight anchored in center slot */
+    transform: scale(0.9);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), border-color 0.3s ease, opacity 0.5s ease, background-color 0.3s ease;
+}
+
+/* Dynamic Active Focus Magnification Highlight state managed via JS */
+.review-card-item.is-featured {
+    transform: scale(1.06) !important; /* Preserved magnification scaling on mobile and desktop layouts */
+    opacity: 1 !important; /* Fully brightens center card */
+    border-color: rgba(201, 165, 90, 0.5) !important;
+    background-color: #0c0c0c !important;
+}
+
+/* Inner Structural Elements */
+.reviewer-profile { display: flex; flex-direction: column; align-items: center; gap: 12px; margin-bottom: 15px; }
+.reviewer-avatar { width: 70px; height: 70px; border-radius: 50%; object-fit: cover; border: 1px solid rgba(201, 165, 90, 0.3); }
+.reviewer-name { color: #C9A55A !important; font-family: 'Jost', sans-serif !important; font-size: 14px !important; font-weight: 500 !important; margin: 0 !important; }
+.review-stars-main { color: #C9A55A; font-size: 28px; letter-spacing: 4px; margin-bottom: 25px; }
+.review-metrics-breakdown { width: 100%; max-width: 240px; display: flex; flex-direction: column; gap: 10px; margin-bottom: 25px; }
+.metric-row { display: flex; justify-content: space-between; align-items: center; font-family: 'Jost', sans-serif; font-size: 13px; color: rgba(255, 255, 255, 0.7); }
+.metric-row .stars { color: #C9A55A; letter-spacing: 2px; font-size: 14px; }
+.review-text-content p { font-family: 'Jost', sans-serif !important; font-size: 13px !important; line-height: 1.7 !important; color: rgba(255, 255, 255, 0.85) !important; font-weight: 300; margin: 0; }
+
+/* ==========================================================================
+   MOBILE LAYOUT CONVERSION (PRESERVING CAROUSEL ENGINE)
+   ========================================================================== */
+@media screen and (max-width: 991px) {
+    .reviews-marquee-title {
+        font-size: 24px !important;
+        letter-spacing: 2px !important;
+    }
+    
+    .review-card-item {
+        padding: 35px 20px;
+        min-height: 440px;
+    }
+
+    .review-stars-main {
+        font-size: 22px;
+        margin-bottom: 15px;
+    }
+}
+
+
+/* ==========================================================================
+   RESERVATION & CONTACT COMPONENTS
+   ========================================================================== */
+
+.reservation-section {
+    background-color: #000000;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* --- TOP HERO TEAM BANNER ENGINE --- */
+.reservation-hero-banner {
+    position: relative;
+    width: 100%;
+    height: 520px; 
+    display: flex;
+    align-items: flex-end; /* Shifts the vertical anchor line to the bottom */
+    justify-content: center;
+    overflow: hidden;
+}
+
+.reservation-hero-banner .banner-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Forces the video to fill the area without stretching */
+    object-position: center center; /* Keeps the focus dead-center across all break points */
+    z-index: 1;
+}
+
+
+
+/* --- UPDATED CONTENT BOX --- */
+.banner-content-box {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+    color: #ffffff;
+    padding: 0 24px 60px 24px; /* 60px bottom padding holds it perfectly near the lower baseline */
+    margin-top: 0; /* Reset previous top margin adjustments */
+}
+
+.banner-content-box .banner-subtitle {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 14px !important;
+    font-weight: 400 !important;
+    letter-spacing: 2px !important;
+    color: #ffffff !important;
+    text-transform: uppercase;
+}
+
+/* Mini Gold Geometric Divider Asset */
+.gold-mini-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px auto;
+    width: 80px;
+    position: relative;
+}
+.gold-mini-divider::before, .gold-mini-divider::after {
+    content: '';
+    height: 1px;
+    background-color: rgba(201, 165, 90, 0.4);
+    flex-grow: 1;
+}
+.gold-diamond-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #C9A55A;
+    transform: rotate(45deg);
+    margin: 0 8px;
+}
+
+.banner-content-box .banner-main-title {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 48px !important;
+    font-weight: 400 !important;
+    letter-spacing: 1px !important;
+    line-height: 1.2 !important;
+    margin: 10px 0 0 0 !important;
+    color: #ffffff !important;
+}
+
+/* --- BOTTOM INTERACTIVE STAGE GRID --- */
+.reservation-interactive-container {
+    width: 100%;
+    max-width: 1320px; /* Harmonizes layout lines with reviews container framework */
+    margin: 0 auto;
+    padding: 90px 24px 120px 24px;
+    box-sizing: border-box;
+}
+
+.reservation-split-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr; /* Gives subtle visual priority weight to the photography display */
+    gap: 80px;
+    align-items: start;
+}
+
+/* Left Column: Ambient Frame Construction */
+.ambient-display-column {
+    width: 100%;
+}
+
+
+
+
+
+.ambient-terrace-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    /* box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5); */
+    z-index: 1;
+    position: relative;
+    object-fit: cover;
+}
+
+/* Right Column: Dynamic Booking Context Framework */
+.booking-widget-column {
+    width: 100%;
+}
+
+.widget-header-block {
+    margin-bottom: 30px;
+}
+
+.widget-header-title {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    color: #C9A55A !important;
+    letter-spacing: 1.5px !important;
+    margin: 0 !important;
+    text-transform: uppercase;
+}
+
+.widget-header-title em {
+    font-family: 'Playfair Display', serif !important;
+    font-style: italic !important;
+    text-transform: none !important;
+    font-weight: 400 !important;
+    letter-spacing: 0px !important;
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   RESMIO COMPONENT UI MOCKUP ENGINE
+   ========================================================================== */
+
+.mock-resmio-widget {
+    width: 100%;
+    height: 100%;
+    background-color: #050505;
+    padding: 35px 25px;
+    box-sizing: border-box;
+    font-family: 'Jost', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Steps Tracker */
+.resmio-mock-steps {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.resmio-mock-steps .step {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.resmio-mock-steps .step.active {
+    color: #C9A55A;
+    font-weight: 500;
+}
+
+.resmio-mock-steps .step-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: rgba(201, 165, 90, 0.15);
+    margin: 0 15px;
+}
+
+/* Inputs Matrix */
+.resmio-input-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.resmio-input-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.resmio-input-group label, 
+.slots-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.resmio-input-group select, 
+.resmio-input-group input {
+    background-color: #0b0b0b;
+    border: 1px solid rgba(201, 165, 90, 0.2);
+    border-radius: 4px;
+    padding: 12px 14px;
+    color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.25s ease;
+}
+
+.resmio-input-group select:focus, 
+.resmio-input-group input:focus {
+    border-color: #C9A55A;
+}
+
+/* Interactive Time Slots */
+.resmio-time-slots-container {
+    margin-bottom: 30px;
+}
+
+.slots-label {
+    display: block;
+    margin-bottom: 12px;
+}
+
+.resmio-slots-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+}
+
+.slot-btn {
+    background-color: #0f0f0f;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 4px;
+    padding: 14px 0;
+    color: #ffffff;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.slot-btn:hover {
+    border-color: rgba(201, 165, 90, 0.5);
+    background-color: #121212;
+}
+
+.slot-btn.active {
+    background-color: rgba(201, 165, 90, 0.1);
+    border-color: #C9A55A;
+    color: #C9A55A;
+    font-weight: 500;
+}
+
+/* Action Area Footer */
+.resmio-action-area {
+    margin-top: auto;
+    text-align: center;
+}
+
+.resmio-notice {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0 0 15px 0;
+}
+
+.resmio-submit-btn {
+    width: 100%;
+    background-color: #C9A55A;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    padding: 16px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background-color 0.25s ease;
+}
+
+.resmio-submit-btn:hover {
+    background-color: #bfa154;
+}
+
+
+/* ==========================================================================
+   RESPONSIVE LAYOUT CONVERSIONS
+   ========================================================================== */
+
+@media screen and (max-width: 991px) {
+    .reservation-hero-banner {
+        height: 380px;
+    }
+
+    .banner-content-box {
+        padding-bottom: 40px; /* Pulls it up slightly on smaller viewports so it doesn't crowd the edge */
+    }
+    
+    .banner-content-box .banner-main-title {
+        font-size: 34px !important;
+    }
+
+    .reservation-interactive-container {
+        padding: 60px 24px 80px 24px;
+    }
+
+    .reservation-split-grid {
+        grid-template-columns: 1fr; /* Collapses columns vertically on tablets/mobiles */
+        gap: 50px;
+    }
+
+    .widget-header-block {
+        text-align: center;
+    }
+    
+    
+}
+
+@media screen and (max-width: 479px) {
+    .reservation-hero-banner {
+        height: 290px;
+    }
+
+    .banner-content-box .banner-main-title {
+        font-size: 28px !important;
+    }
+     .resmio-slots-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==========================================================================
+   CONTACT & LOCATION FRAMEWORK
+   ========================================================================== */
+
+.contact-information-section {
+    background-color: #000000;
+    width: 100%;
+    padding: 100px 24px;
+    box-sizing: border-box;
+}
+
+.contact-layout-container {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 60px;
+    align-items: start;
+}
+
+/* Typography Base Elements */
+.contact-main-title {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 24px !important;
+    font-weight: 400 !important;
+    color: #C9A55A !important;
+    letter-spacing: 1px !important;
+    margin: 0 0 40px 0 !important;
+}
+
+/* Form Styling Rules */
+.contact-custom-form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.form-input-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px 40px;
+}
+
+.form-group-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group-field label {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    color: #C9A55A;
+}
+
+.form-group-field input,
+.form-group-field select,
+.form-group-field textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(201, 165, 90, 0.4);
+    padding: 8px 0;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.form-group-field input::placeholder,
+.form-group-field textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.form-group-field input:focus,
+.form-group-field select:focus,
+.form-group-field textarea:focus {
+    border-color: #C9A55A;
+}
+
+/* Styled Select Arrow Dropdown Override */
+/* Styled Select Arrow Dropdown Override */
+.select-wrapper {
+    position: relative;
+    width: 100%;
+    display: block; /* Ensures it initializes full width */
+}
+
+.select-wrapper::after {
+    content: '▾';
+    position: absolute;
+    right: 5px; /* Moves it slightly inwards for an even look */
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+    font-size: 12px;
+    
+    /* THE CRITICAL FIX: Lets mouse clicks pass directly through to the select option box underneath */
+    pointer-events: none; 
+    
+    z-index: 2;
+}
+
+.form-group-field select {
+    width: 100%; /* Spans the full layout container space */
+    position: relative;
+    z-index: 1;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; /* Ensures Firefox respects the style reset too */
+    padding-right: 25px; /* Creates explicit breathing room so text doesn't hit the arrow */
+    cursor: pointer;
+    background: transparent;
+}
+
+/* Textarea Box Customization */
+.form-group-field textarea {
+    border: 1px solid rgba(201, 165, 90, 0.3);
+    border-radius: 8px;
+    padding: 16px;
+    background-color: #050505;
+    resize: none;
+    margin-top: 5px;
+}
+
+/* Premium Button Implementation */
+.contact-submit-action-btn {
+    align-self: flex-start;
+    background: transparent;
+    border: 1px solid #C9A55A;
+    border-radius: 4px;
+    padding: 14px 40px;
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: #44D62C; /* Specific Bright Green Accent color specified in design files */
+    cursor: pointer;
+    text-transform: none;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.contact-submit-action-btn:hover {
+    background-color: rgba(201, 165, 90, 0.05);
+    transform: translateY(-1px);
+}
+
+/* Center Layout Line Separator */
+.contact-vertical-divider {
+    background-color: rgba(201, 165, 90, 0.2);
+    width: 1px;
+    height: 100%;
+    min-height: 450px;
+}
+
+/* Right Information Panel Components */
+.contact-details-column {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.info-blocks-wrapper {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 30px;
+}
+
+.meta-info-item {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    align-items: start;
+}
+
+/* Inlined vector symbol graphics base layouts */
+.meta-icon {
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    opacity: 0.6;
+}
+.location-icon { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23C9A55A' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z'/%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M15 11a3 3 0 11-6 0 3 3 0 016 0z'/%3E%3C/svg%3E"); }
+.phone-icon { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23C9A55A' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z'/%3E%3C/svg%3E"); }
+.email-icon { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' stroke='%23C9A55A' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'/%3E%3C/svg%3E"); }
+
+.meta-text h3 {
+    font-family: 'Jost', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #C9A55A;
+    margin: 0 0 4px 0;
+}
+
+.meta-text p {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin: 0;
+}
+
+/* Time Schedule Structural Matrix */
+.hours-schedule-row {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    gap: 4px;
+}
+
+.hours-schedule-row .days {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.hours-schedule-row .time-range {
+    font-family: 'Jost', sans-serif;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Styled Map Component Box Frame */
+.google-map-outer-frame {
+    position: relative;
+    width: 100%;
+    height: 230px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.map-inner-canvas {
+    width: 100%;
+    height: 100%;
+    border-radius: 4px;
+    overflow: hidden;
+    background-color: #050505;
+}
+
+/* Mini Geometric Border Overlays */
+.map-corner-accent {
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border: 1px solid #C9A55A;
+    pointer-events: none;
+}
+.map-corner-accent.top-left { top: 0; left: 0; border-right: none; border-bottom: none; }
+.map-corner-accent.top-right { top: 0; right: 0; border-left: none; border-bottom: none; }
+.map-corner-accent.bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; }
+.map-corner-accent.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+/* ==========================================================================
+   RESPONSIVE DESIGN SYSTEM OVERRIDES
+   ========================================================================== */
+
+@media screen and (max-width: 991px) {
+    .contact-layout-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .contact-vertical-divider {
+        display: none;
+    }
+    
+    .info-blocks-wrapper {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .form-input-grid,
+    .info-blocks-wrapper {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contact-information-section {
+        padding: 60px 20px;
+    }
+    
+    .contact-submit-action-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ==========================================================================
+   PREMIUM CLOSING BRAND FOOTER
+   ========================================================================== */
+
+.brand-closing-footer {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 80px 24px 60px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #000000;
+    box-sizing: border-box;
+}
+
+.footer-pre-title {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 15px !important;
+    color: #ffffff !important;
+    letter-spacing: 0.5px !important;
+    text-transform: none;
+}
+
+/* Mini Gold Geometric Divider Asset Layout Engine */
+.gold-mini-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto 25px auto;
+    width: 65px;
+    position: relative;
+}
+
+.gold-mini-divider::before, 
+.gold-mini-divider::after {
+    content: '';
+    height: 1px;
+    background-color: rgba(201, 165, 90, 0.3);
+    flex-grow: 1;
+}
+
+.gold-diamond-dot {
+    width: 5px;
+    height: 5px;
+    background-color: #C9A55A;
+    transform: rotate(45deg);
+    margin: 0 6px;
+}
+
+/* Main Display Statement Title Core Typography */
+.footer-hero-headline {
+    font-family: 'Playfair Display', serif !important;
+    font-size: 42px !important;
+    font-weight: 400 !important;
+    line-height: 1.35 !important;
+    color: #C9A55A !important;
+    max-width: 780px;
+    margin: 0 auto 50px auto !important;
+    letter-spacing: 0.5px;
+}
+
+/* Signature Large Center Diamond Split Layout Line */
+.footer-grand-divider-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 620px;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+}
+
+.footer-grand-divider-row .divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: #C9A55A;
+}
+
+.grand-diamond-accent {
+    width: 26px;
+    height: 45px;
+    background-color: #C9A55A;
+    margin: 0 30px;
+    /* Mathematical diamond layout clip map geometry */
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); 
+}
+
+/* Navigation Utilities Links Elements Row */
+.footer-legal-links-nav {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+}
+
+.legal-link {
+    font-family: 'Jost', sans-serif !important;
+    font-size: 13px !important;
+    color: #C9A55A !important;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}
+
+.legal-link:hover {
+    opacity: 1;
+}
+
+/* --- RESPONSIVE DESIGN SYSTEM OVERRIDES --- */
+@media screen and (max-width: 767px) {
+    .brand-closing-footer {
+        padding: 60px 20px 40px 20px;
+    }
+
+    .footer-hero-headline {
+        font-size: 28px !important;
+        line-height: 1.4 !important;
+        margin-bottom: 35px !important;
+    }
+    
+    .footer-grand-divider-row {
+        max-width: 85%;
+    }
+    
+    .grand-diamond-accent {
+        margin: 0 20px;
+        width: 20px;
+        height: 35px;
+    }
+
+    .footer-legal-links-nav {
+        gap: 30px;
+    }
+}
+
+/* ==========================================================================
+   DYNAMIC STICKY NAVIGATION STYLES
+   ========================================================================== */
+
+.global-scroll-navigation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    border-bottom: 1px solid rgba(201, 165, 90, 0.15);
+    padding: 0 24px;
+    box-sizing: border-box;
+    z-index: 9999; /* Ensures it floats cleanly above all parallax layers */
+    
+    /* Reveal Mechanics Initialization */
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+}
+
+/* Activated State triggered via Scroll JavaScript Engine */
+.global-scroll-navigation.is-visible {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.nav-layout-container {
+    width: 100%;
+    max-width: 1320px;
+    height: 70px; /* Perfectly proportioned compact layout tracking line */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+/* Branded Graphic Logo Setup */
+.nav-logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%; /* Spans full height of the header row */
+    padding: 8px 0;
+    box-sizing: border-box;
+}
+
+.nav-logo-image {
+    height: 100%;
+    max-height: 50px; /* Caps scale layout line neatly inside the 70px nav box */
+    width: auto;      /* Keeps aspect ratio locked with no distortion */
+    object-fit: contain;
+    display: block;
+}
+
+/* Responsive adjustment for mobile screen layout rules */
+@media screen and (max-width: 767px) {
+    .nav-logo-image {
+        max-height: 40px; /* Slightly more compact on mobile viewports */
+    }
+}
+
+/* --- BRAND LOGO STYLING --- */
+.nav-logo-link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    /* Shifting downward by increasing the top padding and decreasing the bottom */
+    padding: 15px 0 2px 0 !important; 
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+.nav-logo-link .logo-text-white { color: #ffffff; }
+.nav-logo-link .logo-text-green { color: #2ae21a; } /* Branded vibrant signature green accent */
+
+/* ==========================================================================
+   GEOMETRIC DIAMOND NAVIGATION LINKS
+   ========================================================================== */
+
+.nav-links-anchors {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-item {
+    font-family: 'Jost', sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: #C9A55A;
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    position: relative;
+    /* Increased top padding pushes the text layout baseline downward */
+    padding: 16px 0 18px 0 !important; 
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+/* --- THE GEOMETRIC DIVIDER CONTAINER --- */
+.nav-item .nav-divider-asset {
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    width: 100px; /* Overall layout footprint width for the asset lines */
+    height: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1); /* Snappy 180 flip mechanical feel */
+}
+
+/* Centered Geometric Diamond Asset Piece */
+.nav-item .nav-divider-asset .nav-diamond {
+    width: 10px;
+    height: 10px;
+    background-color: #C9A55A;
+    transform: rotate(45deg);
+    flex-shrink: 0;
+    transition: background-color 0.3s ease;
+}
+
+/* Wing Lines stretching outwards left/right */
+.nav-item .nav-divider-asset::before,
+.nav-item .nav-divider-asset::after {
+    content: '';
+    height: 1px;
+    background-color: #C9A55A;
+    position: absolute;
+    top: 50%;
+    width: 40px; /* Length of the line wings on either side */
+    transform: scaleX(0);
+    transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), background-color 0.3s ease;
+}
+
+/* Anchor Alignment for Left vs Right Outward Expansion */
+.nav-item .nav-divider-asset::before {
+    right: 55%; /* Positions line left of center diamond */
+    transform-origin: right;
+}
+.nav-item .nav-divider-asset::after {
+    left: 55%; /* Positions line right of center diamond */
+    transform-origin: left;
+}
+
+/* --- HOVER VARIANT STATES (GOLD OUTWARD REVEAL) --- */
+.nav-item:hover {
+    color: #ffffff;
+}
+
+.nav-item:hover .nav-divider-asset {
+    opacity: 1;
+}
+
+.nav-item:hover .nav-divider-asset::before,
+.nav-item:hover .nav-divider-asset::after {
+    transform: scaleX(1); /* Lines grow smoothly outwards from the center diamond */
+}
+
+/* --- CLICK / ACTIVE SELECTION VARIANT STATES (GREEN 180° FLIP) --- */
+.nav-item.is-active-tab {
+    color: #2ae21a !important; /* Branded active accent green */
+}
+
+.nav-item.is-active-tab .nav-divider-asset {
+    opacity: 1;
+    /* Keeps horizontal center alignment while introducing the 180-degree flip transformation */
+    transform: translateX(-50%) rotate(180deg); 
+}
+
+.nav-item.is-active-tab .nav-divider-asset .nav-diamond {
+    background-color: #2ae21a !important;
+}
+
+.nav-item.is-active-tab .nav-divider-asset::before,
+.nav-item.is-active-tab .nav-divider-asset::after {
+    background-color: #2ae21a !important;
+    transform: scaleX(1); /* Holds line visibility constant in active mode */
+}
+
+/* --- RESPONSIVE LAYOUT RESPONSES --- */
+@media screen and (max-width: 767px) {
+    .nav-layout-container {
+        height: 60px;
+    }
+    
+    .nav-links-anchors {
+        gap: 20px;
+    }
+    
+    .nav-item {
+        font-size: 13px;
+    }
+    
+    .nav-logo-link {
+        font-size: 18px;
+    }
+}

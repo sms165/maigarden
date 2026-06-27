@@ -1,0 +1,48 @@
+{
+  "version": 3,
+  "settings": {
+    "color": {
+      "palette": [
+        { "slug": "black", "color": "#000000", "name": "Deep Black" },
+        { "slug": "gold", "color": "#C9A55A", "name": "Gold" },
+        { "slug": "white", "color": "#FFFFFF", "name": "White" }
+      ],
+      "custom": false
+    },
+    "layout": {
+      "contentSize": "800px",
+      "wideSize": "1200px"
+    },
+    "typography": {
+      "fontFamilies": [
+        {
+          "fontFamily": "'Cinzel', serif",
+          "slug": "heading",
+          "name": "Heading Font",
+          "fontFace": [
+            {
+              "fontFamily": "Cinzel",
+              "src": [ "https://fonts.gstatic.com/s/cinzel/v19/8vXU7Z0UzM7433PG.woff2" ],
+              "fontStyle": "normal",
+              "fontWeight": "400 700"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var(--wp--preset--color--black)",
+      "text": "var(--wp--preset--color--white)"
+    },
+    "elements": {
+      "heading": {
+        "typography": {
+          "fontFamily": "var(--wp--preset--typography--font-family--heading)"
+        },
+        "color": "var(--wp--preset--color--gold)"
+      }
+    }
+  }
+}
