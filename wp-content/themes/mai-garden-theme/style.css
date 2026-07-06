@@ -2352,21 +2352,62 @@ html {
     transform: scaleX(1); /* Holds line visibility constant in active mode */
 }
 
-/* --- RESPONSIVE LAYOUT RESPONSES --- */
+/* ==========================================================================
+   RESPONSIVE LAYOUT RESPONSES (MOBILE VIEWPORT APP-STYLE BOTTOM NAV)
+   ========================================================================== */
 @media screen and (max-width: 767px) {
+    
+    /* Pivot the navbar frame to sit flush on the bottom layout edge */
+    .global-scroll-navigation {
+        top: auto !important;
+        bottom: 0 !important;
+        border-top: 1px solid rgba(201, 165, 90, 0.15);
+        border-bottom: none;
+        padding: 0 16px;
+        
+        /* Slide entrance swap: Rises from bottom up */
+        transform: translateY(100%);
+    }
+    
+    /* When scroll engine triggers visual flag state */
+    .global-scroll-navigation.is-visible {
+        transform: translateY(0);
+    }
+
     .nav-layout-container {
-        height: 60px;
+        height: 65px;
+        justify-content: center; /* Centers navigation link grid globally on mobile */
     }
-    
+
+    /* DROPS LOGO OUT OF ELEMENT MAP */
+    .nav-logo-link {
+        display: none !important;
+    }
+
+    /* Spread links evenly across the mobile device width */
     .nav-links-anchors {
-        gap: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        gap: 0;
     }
-    
+
+    /* Tighten typography footprint and clear layout bounds */
     .nav-item {
         font-size: 13px;
+        padding: 12px 6px 16px 6px !important;
+        flex: 1;
+        text-align: center;
     }
-    
-    .nav-logo-link {
-        font-size: 18px;
+
+    /* Adjust the absolute diamond line asset alignment slightly on mobile */
+    .nav-item .nav-divider-asset {
+        width: 70px;
+        bottom: 2px;
+    }
+
+    .nav-item .nav-divider-asset::before,
+    .nav-item .nav-divider-asset::after {
+        width: 25px; /* Compresses wing width so items don't cross overlap */
     }
 }
